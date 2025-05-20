@@ -11,6 +11,9 @@
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   header {
@@ -18,12 +21,14 @@
     color: #fff;
     padding: 20px;
     text-align: center;
+    flex-shrink: 0;
   }
 
   section {
     padding: 40px 20px;
     max-width: 1000px;
     margin: auto;
+    flex-grow: 1;
   }
 
   h2 {
@@ -34,8 +39,8 @@
   .fleet-group {
     display: inline-block;
     cursor: pointer;
-    max-width: 250px;
-    margin: 15px;
+    max-width: 300px;
+    margin: 15px auto;
     text-align: center;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -64,8 +69,10 @@
 
   #lightbox > div {
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
   }
 
   #lightbox-img {
@@ -93,6 +100,7 @@
     background: rgba(0,0,0,0.4);
     border-radius: 4px;
     transition: background 0.3s;
+    user-select:none;
   }
 
   #prev-lightbox:hover, #next-lightbox:hover {
@@ -130,6 +138,19 @@
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+    flex-shrink: 0;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    section {
+      padding: 20px 10px;
+    }
+
+    .fleet-group {
+      max-width: 90vw;
+      margin: 15px auto;
+    }
   }
 </style>
 </head>
@@ -142,3 +163,121 @@
 
 <section>
   <h2>CHI SIAMO</h2>
+  <p>GP NCC Service offre un servizio di noleggio con conducente affidabile e puntuale su Milano e zone limitrofe. Ideale per trasferimenti aziendali, aeroportuali e privati.</p>
+</section>
+
+<section>
+  <h2>CONTATTI</h2>
+  <p><strong>TELEFONO:</strong> 3346137000</p>
+  <p><strong>E-MAIL:</strong> gp.ncc.service@gmail.com</p>
+</section>
+
+<section>
+  <h2>FLOTTA</h2>
+  <div class="fleet-group" data-group="classe-e" tabindex="0" aria-label="Apri galleria CLASSE E">
+    <img src="Macchina 9.jpg" alt="Anteprima CLASSE E" />
+    <div style="font-weight:bold; margin-top:8px;">CLASSE E</div>
+  </div>
+</section>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-label" tabindex="-1">
+  <div>
+    <span id="close-lightbox" role="button" aria-label="Chiudi">&times;</span>
+    <span id="prev-lightbox" role="button" aria-label="Immagine precedente">&#10094;</span>
+    <img id="lightbox-img" src="" alt="" />
+    <span id="next-lightbox" role="button" aria-label="Immagine successiva">&#10095;</span>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 GP NCC Service - Tutti i diritti riservati
+</footer>
+
+<script>
+  const galleryData = {
+    'classe-e': [
+      "Macchina 9.jpg",
+      "Macchina 11.jpg",
+      "Macchina 10.jpg",
+      "Macchina 12.jpg",
+      "Macchina 5.jpg",
+      "Macchina 2.jpg",
+      "Macchina 3.jpg",
+      "Macchina 6.jpg",
+      "Macchina 8.jpg",
+      "Macchina 1.jpg",
+      "Macchina 4.jpg",
+      "Macchina 7.jpg"
+    ]
+  };
+
+  const fleetGroup = document.querySelector('.fleet-group');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close-lightbox');
+  const prevBtn = document.getElementById('prev-lightbox');
+  const nextBtn = document.getElementById('next-lightbox');
+
+  let currentGroup = null;
+  let currentIndex = 0;
+
+  function showImage() {
+    const imgs = galleryData[currentGroup];
+    lightboxImg.src = imgs[currentIndex];
+    lightboxImg.alt = `Immagine ${currentIndex + 1} di ${imgs.length} - CLASSE E`;
+  }
+
+  function openGallery(e) {
+    e.preventDefault();
+    currentGroup = fleetGroup.getAttribute('data-group');
+    currentIndex = 0;
+    showImage();
+    lightbox.style.display = 'flex';
+    lightbox.focus();
+  }
+
+  function closeGallery() {
+    lightbox.style.display = 'none';
+  }
+
+  function prevImage() {
+    const imgs = galleryData[currentGroup];
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    showImage();
+  }
+
+  function nextImage() {
+    const imgs = galleryData[currentGroup];
+    currentIndex = (currentIndex + 1) % imgs.length;
+    showImage();
+  }
+
+  fleetGroup.addEventListener('click', openGallery);
+  fleetGroup.addEventListener('touchend', openGallery);
+
+  closeBtn.addEventListener('click', closeGallery);
+  closeBtn.addEventListener('touchend', closeGallery);
+
+  prevBtn.addEventListener('click', prevImage);
+  prevBtn.addEventListener('touchend', prevImage);
+
+  nextBtn.addEventListener('click', nextImage);
+  nextBtn.addEventListener('touchend', nextImage);
+
+  lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox) {
+      closeGallery();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'Escape') closeGallery();
+      else if (e.key === 'ArrowLeft') prevImage();
+      else if (e.key === 'ArrowRight') nextImage();
+    }
+  });
+</script>
+
+</body>
+</html>
