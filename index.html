@@ -7,149 +7,100 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     background-color: #f5f5f5;
     color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
-
   header {
     background-color: #11120f;
     color: #fff;
     padding: 20px;
     text-align: center;
-    flex-shrink: 0;
   }
-
+  header img {
+    max-width: 200px;
+    height: auto;
+  }
   section {
     padding: 40px 20px;
     max-width: 1000px;
     margin: auto;
-    flex-grow: 1;
   }
-
   h2 {
     border-bottom: 2px solid #000;
     padding-bottom: 10px;
+    text-transform: uppercase;
   }
-
-  .fleet-group {
-    display: inline-block;
-    cursor: pointer;
-    max-width: 300px;
-    margin: 15px auto;
+  .flotta-preview {
     text-align: center;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
   }
-
-  .fleet-group img {
-    width: 100%;
+  .flotta-preview img {
+    width: 300px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    display: block;
+    transition: transform 0.3s ease;
   }
-
+  .flotta-preview img:hover {
+    transform: scale(1.05);
+  }
+  /* Lightbox */
   #lightbox {
     display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.85);
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    flex-direction: column;
-    padding: 10px;
-    box-sizing: border-box;
+    z-index: 9999;
   }
-
-  #lightbox > div {
-    position: relative;
+  #lightbox img {
     max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-  }
-
-  #lightbox-img {
-    max-width: 100%;
     max-height: 80vh;
     border-radius: 10px;
-    display: block;
-    margin: 0 auto;
-    touch-action: manipulation;
+    box-shadow: 0 0 20px #000;
   }
-
-  #close-lightbox, #prev-lightbox, #next-lightbox {
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-  #prev-lightbox, #next-lightbox {
-    font-size: 2.5em;
+  #lightbox .controls {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     color: white;
+    font-size: 3rem;
+    user-select: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+    transform: translateY(-50%);
+  }
+  #lightbox .controls span {
     cursor: pointer;
-    padding: 5px 10px;
     background: rgba(0,0,0,0.4);
-    border-radius: 4px;
-    transition: background 0.3s;
-    user-select:none;
+    border-radius: 50%;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
   }
-
-  #prev-lightbox:hover, #next-lightbox:hover {
-    background: rgba(0,0,0,0.7);
+  #lightbox .controls span:hover {
+    background: rgba(255,255,255,0.3);
   }
-
-  #prev-lightbox {
-    left: 10px;
-  }
-
-  #next-lightbox {
-    right: 10px;
-  }
-
   #close-lightbox {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2.5em;
+    top: 20px; right: 30px;
+    font-size: 2.5rem;
     color: white;
     cursor: pointer;
-    background: rgba(0,0,0,0.4);
-    border-radius: 4px;
-    padding: 2px 8px;
-    transition: background 0.3s;
+    user-select: none;
   }
-
-  #close-lightbox:hover {
-    background: rgba(0,0,0,0.7);
-  }
-
   footer {
     background-color: #1c1c1a;
     color: #fff;
     text-align: center;
     padding: 20px;
     margin-top: 40px;
-    flex-shrink: 0;
   }
-
-  /* Responsive tweaks */
+  /* Responsive */
   @media (max-width: 600px) {
-    section {
-      padding: 20px 10px;
-    }
-
-    .fleet-group {
-      max-width: 90vw;
-      margin: 15px auto;
+    .flotta-preview img {
+      width: 90vw;
     }
   }
 </style>
@@ -157,7 +108,7 @@
 <body>
 
 <header>
-  <img src="logo ncc 2.png" alt="GP NCC Service" style="max-width: 200px; height: auto;" />
+  <img src="logo%20ncc%202.png" alt="GP NCC Service" />
   <p>SERVIZIO NCC SU MILANO E ZONE LIMITROFE</p>
 </header>
 
@@ -174,18 +125,18 @@
 
 <section>
   <h2>FLOTTA</h2>
-  <div class="fleet-group" data-group="classe-e" tabindex="0" aria-label="Apri galleria CLASSE E">
-    <img src="Macchina 9.jpg" alt="Anteprima CLASSE E" />
-    <div style="font-weight:bold; margin-top:8px;">CLASSE E</div>
+  <div class="flotta-preview" tabindex="0" aria-label="Apri galleria classe E" role="button">
+    <img src="Macchina%209.jpg" alt="CLASSE E" id="preview-image" />
   </div>
 </section>
 
+<!-- Lightbox -->
 <div id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-label" tabindex="-1">
-  <div>
-    <span id="close-lightbox" role="button" aria-label="Chiudi">&times;</span>
-    <span id="prev-lightbox" role="button" aria-label="Immagine precedente">&#10094;</span>
-    <img id="lightbox-img" src="" alt="" />
-    <span id="next-lightbox" role="button" aria-label="Immagine successiva">&#10095;</span>
+  <span id="close-lightbox" aria-label="Chiudi galleria" role="button" tabindex="0">&times;</span>
+  <img id="lightbox-img" alt="" />
+  <div class="controls">
+    <span id="prev-lightbox" aria-label="Immagine precedente" role="button" tabindex="0">&#10094;</span>
+    <span id="next-lightbox" aria-label="Immagine successiva" role="button" tabindex="0">&#10095;</span>
   </div>
 </div>
 
@@ -194,90 +145,79 @@
 </footer>
 
 <script>
-  const galleryData = {
-    'classe-e': [
-      "Macchina 9.jpg",
-      "Macchina 11.jpg",
-      "Macchina 10.jpg",
-      "Macchina 12.jpg",
-      "Macchina 5.jpg",
-      "Macchina 2.jpg",
-      "Macchina 3.jpg",
-      "Macchina 6.jpg",
-      "Macchina 8.jpg",
-      "Macchina 1.jpg",
-      "Macchina 4.jpg",
-      "Macchina 7.jpg"
-    ]
-  };
+  const galleryImages = [
+    "Macchina 9.jpg",
+    "Macchina 11.jpg",
+    "Macchina 10.jpg",
+    "Macchina 12.jpg",
+    "Macchina 5.jpg",
+    "Macchina 2.jpg",
+    "Macchina 3.jpg",
+    "Macchina 6.jpg",
+    "Macchina 8.jpg",
+    "Macchina 1.jpg",
+    "Macchina 4.jpg",
+    "Macchina 7.jpg"
+  ];
 
-  const fleetGroup = document.querySelector('.fleet-group');
+  // Preload images
+  galleryImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+
+  const preview = document.querySelector('.flotta-preview');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.getElementById('close-lightbox');
   const prevBtn = document.getElementById('prev-lightbox');
   const nextBtn = document.getElementById('next-lightbox');
 
-  let currentGroup = null;
   let currentIndex = 0;
 
-  function showImage() {
-    const imgs = galleryData[currentGroup];
-    lightboxImg.src = imgs[currentIndex];
-    lightboxImg.alt = `Immagine ${currentIndex + 1} di ${imgs.length} - CLASSE E`;
+  function showImage(index) {
+    currentIndex = index;
+    lightboxImg.src = galleryImages[currentIndex];
+    lightboxImg.alt = `Immagine ${currentIndex + 1} di ${galleryImages.length} - CLASSE E`;
   }
 
-  function openGallery(e) {
-    e.preventDefault();
-    currentGroup = fleetGroup.getAttribute('data-group');
-    currentIndex = 0;
-    showImage();
+  function openLightbox() {
+    showImage(0);
     lightbox.style.display = 'flex';
     lightbox.focus();
+    document.body.style.overflow = 'hidden'; // blocca scroll pagina
   }
 
-  function closeGallery() {
+  function closeLightbox() {
     lightbox.style.display = 'none';
+    document.body.style.overflow = ''; // sblocca scroll pagina
   }
 
   function prevImage() {
-    const imgs = galleryData[currentGroup];
-    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
-    showImage();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImage(currentIndex);
   }
 
   function nextImage() {
-    const imgs = galleryData[currentGroup];
-    currentIndex = (currentIndex + 1) % imgs.length;
-    showImage();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImage(currentIndex);
   }
 
-  fleetGroup.addEventListener('click', openGallery);
-  fleetGroup.addEventListener('touchend', openGallery);
+  preview.addEventListener('click', openLightbox);
+  preview.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox();
+    }
+  });
 
-  closeBtn.addEventListener('click', closeGallery);
-  closeBtn.addEventListener('touchend', closeGallery);
+  closeBtn.addEventListener('click', closeLightbox);
+  closeBtn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      closeLightbox();
+    }
+  });
 
   prevBtn.addEventListener('click', prevImage);
-  prevBtn.addEventListener('touchend', prevImage);
-
-  nextBtn.addEventListener('click', nextImage);
-  nextBtn.addEventListener('touchend', nextImage);
-
-  lightbox.addEventListener('click', (e) => {
-    if(e.target === lightbox) {
-      closeGallery();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.style.display === 'flex') {
-      if (e.key === 'Escape') closeGallery();
-      else if (e.key === 'ArrowLeft') prevImage();
-      else if (e.key === 'ArrowRight') nextImage();
-    }
-  });
-</script>
-
-</body>
-</html>
+  prevBtn.addEventListener('keydown', e =>
