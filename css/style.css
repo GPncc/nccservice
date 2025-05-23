@@ -1,35 +1,55 @@
 /* style.css */
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
   color: #333;
+  background-color: #f5f5f5;
 }
 
 body.home {
-  background-image: url('home.jpeg'); /* Usa il file corretto */
+  position: relative;
+  min-height: 100%;
+  background-image: url('home.jpeg'); /* Assicurati che il percorso sia corretto */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  color: white; /* testo bianco per visibilità sopra l'immagine */
+}
+
+/* Overlay semitrasparente scuro sopra la home */
+body.home::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* nero con 40% opacità */
+  pointer-events: none; /* non blocca clic e scroll */
+  z-index: 0;
+}
+
+/* Assicurati che tutto il contenuto sia sopra l'overlay */
+body.home > * {
+  position: relative;
+  z-index: 1;
 }
 
 header {
-  background-color: #11120f;
+  background-color: #11120fcc; /* leggermente trasparente per vedere un po' lo sfondo */
   color: #fff;
   padding: 20px;
   text-align: center;
-  flex-shrink: 0;
 }
 
 nav {
-  background-color: #ddd; /* grigio chiaro per il menu */
+  background-color: #ddd;
   padding: 10px 0;
-  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
 }
 
 .menu {
@@ -57,17 +77,36 @@ nav {
 }
 
 section {
-  flex: 1 0 auto; /* fa espandere la sezione principale */
   padding: 40px 20px;
   max-width: 1000px;
   margin: auto;
+  background-color: rgba(255, 255, 255, 0.9); /* bianco semitrasparente per leggibilità contenuti */
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 footer {
-  flex-shrink: 0;
   background-color: #1c1c1a;
   color: #fff;
   text-align: center;
   padding: 20px;
-  margin-top: 0;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+  /* footer in fondo */
+  margin-top: auto;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Per mantenere footer in fondo alla pagina */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body > section {
+  flex: 1;
 }
