@@ -1,35 +1,39 @@
 /* style.css */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
   color: #333;
-  min-height: 100vh;
+}
+
+/* Solo per la home con sfondo */
+body.home {
+  min-height: 100vh; /* altezza minima 100% viewport */
+  background-image: url('../home.jpeg'); /* percorso relativo corretto */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
 }
 
-body.home {
-  background-image: url('../home.jpeg'); /* Se home.jpeg è nella cartella principale */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  flex-grow: 1;
-}
-
+/* Header */
 header {
-  background-color: #11120f;
+  background-color: rgba(17, 18, 15, 0.8); /* leggermente trasparente per vedere sfondo */
   color: #fff;
   padding: 20px;
   text-align: center;
-  flex-shrink: 0;
+  z-index: 10;
 }
 
+/* Menu di navigazione */
 nav {
-  background-color: #ddd; /* grigio chiaro per il menu */
+  background-color: rgba(221, 221, 221, 0.8); /* grigio chiaro semi-trasparente */
   padding: 10px 0;
-  flex-shrink: 0;
+  z-index: 10;
 }
 
 .menu {
@@ -56,18 +60,23 @@ nav {
   color: #555;
 }
 
+/* Sezione contenuti con padding aumentato per più spazio */
 section {
-  padding: 40px 20px;
+  padding: 100px 20px; /* più spazio verticale */
   max-width: 1000px;
   margin: auto;
-  flex-grow: 1;
+  flex-grow: 1; /* prende tutto lo spazio rimanente */
+  background-color: rgba(255, 255, 255, 0.8); /* sfondo bianco semi-trasparente per leggibilità */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
+/* Footer sempre in fondo */
 footer {
   background-color: #1c1c1a;
   color: #fff;
   text-align: center;
   padding: 20px;
-  flex-shrink: 0;
-  margin-top: auto;
+  margin-top: auto; /* spinge footer in fondo */
+  z-index: 10;
 }
