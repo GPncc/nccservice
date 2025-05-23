@@ -1,5 +1,3 @@
-/* style.css */
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -8,32 +6,24 @@ body {
   color: #333;
 }
 
-/* Solo per la home con sfondo */
 body.home {
-  min-height: 100vh; /* altezza minima 100% viewport */
-  background-image: url('../home.jpeg'); /* percorso relativo corretto */
+  background-image: url('../home.jpeg'); /* aggiorna il percorso se serve */
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh; /* fa estendere il body su tutta altezza schermo */
 }
 
-/* Header */
 header {
-  background-color: rgba(17, 18, 15, 0.8); /* leggermente trasparente per vedere sfondo */
+  background-color: #11120f;
   color: #fff;
   padding: 20px;
   text-align: center;
-  z-index: 10;
 }
 
-/* Menu di navigazione */
 nav {
-  background-color: rgba(221, 221, 221, 0.8); /* grigio chiaro semi-trasparente */
+  background-color: #ddd;
   padding: 10px 0;
-  z-index: 10;
 }
 
 .menu {
@@ -60,23 +50,21 @@ nav {
   color: #555;
 }
 
-/* Sezione contenuti con padding aumentato per più spazio */
 section {
-  padding: 100px 20px; /* più spazio verticale */
+  padding: 40px 20px;
   max-width: 1000px;
   margin: auto;
-  flex-grow: 1; /* prende tutto lo spazio rimanente */
-  background-color: rgba(255, 255, 255, 0.8); /* sfondo bianco semi-trasparente per leggibilità */
+  background: rgba(255, 255, 255, 0.8); /* sfondo leggero bianco trasparente per leggibilità */
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Footer sempre in fondo */
 footer {
   background-color: #1c1c1a;
   color: #fff;
   text-align: center;
   padding: 20px;
-  margin-top: auto; /* spinge footer in fondo */
-  z-index: 10;
+  margin-top: 40px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
