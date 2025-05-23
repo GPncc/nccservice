@@ -1,172 +1,74 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GP NCC</title>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-    header {
-      background-color: #11120f;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    nav.navbar {
-      background-color: #e0e0e0;
-      padding: 10px 0;
-      text-align: center;
-    }
-    nav.navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    nav.navbar li a {
-      color: #11120f;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 8px 16px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-    nav.navbar li a:hover {
-      background-color: #d0d0d0;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #000;
-      padding-bottom: 10px;
-    }
-    .flotta-preview {
-      text-align: center;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .flotta-preview h3 {
-      margin-bottom: 10px;
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    .flotta-preview img {
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .flotta-gallery {
-      display: none;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .flotta-gallery img {
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      background-color: #1c1c1a;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GP NCC</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  header {
+    background-color: #11120f;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  nav {
+    background-color: #d3d3d3; /* grigio chiaro */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px 0;
+  }
+  nav a {
+    text-decoration: none;
+    color: #11120f;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #555;
+  }
+  section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+    min-height: 300px; /* per dare un minimo di altezza */
+  }
+  footer {
+    background-color: #1c1c1a;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+</style>
 </head>
 <body>
-
 <header>
   <img src="logo ncc 2.png" alt="GP NCC Service" style="max-width: 200px; height: auto;">
-  <p>SEVIZIO NCC SU PIEMONTE E LOMBARDIA</p>
+  <p>SERVIZIO NCC SU PIEMONTE E LOMBARDIA</p>
 </header>
 
-<nav class="navbar">
-  <ul>
-    <li><a href="#chi-siamo">Chi Siamo</a></li>
-    <li><a href="#flotta">Flotta</a></li>
-    <li><a href="#contatti">Contatti</a></li>
-  </ul>
+<nav>
+  <a href="chi-siamo.html">CHI SIAMO</a>
+  <a href="flotta.html">FLOTTA</a>
+  <a href="contatti.html">CONTATTI</a>
 </nav>
 
-<section id="chi-siamo">
-  <h2>CHI SIAMO</h2>
-  <p>GP NCC Service offre un servizio di noleggio con conducente affidabile e puntuale su Piemonte e Lombardia. Ideale per trasferimenti aeroportuali, aziendali e privati.</p>
-</section>
-
-<section id="contatti">
-  <h2>CONTATTI</h2>
-  <p><strong>TELEFONO:</strong> +39 3346137000</p>
-  <p><strong>E-MAIL:</strong> gp.ncc.service@gmail.com</p>
-</section>
-
-<section id="flotta">
-  <h2>FLOTTA</h2>
-
-  <div class="flotta-preview" onclick="toggleGallery('gallery-classe-e')">
-    <h3>CLASSE E</h3>
-    <img src="Macchina 9.jpg" alt="Classe E" />
-  </div>
-  <div class="flotta-gallery" id="gallery-classe-e">
-    <img src="Macchina 11.jpg" alt="Veicolo 11" />
-    <img src="Macchina 10.jpg" alt="Veicolo 10" />
-    <img src="Macchina 12.jpg" alt="Veicolo 12" />
-    <img src="Macchina 5.jpg" alt="Veicolo 5" />
-    <img src="Macchina 2.jpg" alt="Veicolo 2" />
-    <img src="Macchina 3.jpg" alt="Veicolo 3" />
-    <img src="Macchina 6.jpg" alt="Veicolo 6" />
-    <img src="Macchina 8.jpg" alt="Veicolo 8" />
-    <img src="Macchina 1.jpg" alt="Veicolo 1" />
-    <img src="Macchina 4.jpg" alt="Veicolo 4" />
-    <img src="Macchina 7.jpg" alt="Veicolo 7" />
-  </div>
-
-  <div class="flotta-preview" onclick="toggleGallery('gallery-vito')">
-    <h3>MERCEDES VITO</h3>
-    <img src="m Vito 1.jpg" alt="Mercedes Vito" />
-  </div>
-  <div class="flotta-gallery" id="gallery-vito">
-    <img src="m Vito 1.jpg" alt="Vito 1" />
-    <img src="m Vito 2.jpg" alt="Vito 2" />
-    <img src="m Vito 3.jpg" alt="Vito 3" />
-  </div>
+<section>
+  <!-- Pagina principale vuota per ora -->
 </section>
 
 <footer>
   &copy; 2025 GP NCC Service - Tutti i diritti riservati
 </footer>
-
-<script>
-function toggleGallery(id) {
-  const galleries = document.querySelectorAll('.flotta-gallery');
-  galleries.forEach(g => {
-    if (g.id === id) {
-      g.style.display = g.style.display === 'flex' ? 'none' : 'flex';
-    } else {
-      g.style.display = 'none';
-    }
-  });
-}
-</script>
-
 </body>
 </html>
