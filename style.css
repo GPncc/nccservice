@@ -1,0 +1,43 @@
+/* Stile generale */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #11120f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Menu di navigazione */
+nav {
+  background-color: #e0e0e0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+nav li {
+  display: inline;
+}
+
+nav a {
