@@ -1,9 +1,11 @@
-/* Stile base */
-body {
-  font-family: Arial, sans-serif;
+/* Reset base */
+html, body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
   color: #333;
+  max-width: 100vw;
+  overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,13 +13,13 @@ body {
 
 /* Sfondo per la home */
 body.home {
-  background-image: url('../home.jpeg');
+  background-image: url('../home.jpeg'); /* percorso relativo a style.css */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Testo e box sopra lo sfondo */
+/* Box sopra sfondo home, se serve */
 .home-box {
   background: rgba(255, 255, 255, 0.85);
   max-width: 800px;
@@ -31,7 +33,7 @@ body.home {
 /* Header */
 header {
   background-color: #11120f;
-  color: #fff;
+  color: white;
   padding: 20px;
   text-align: center;
   flex-shrink: 0;
@@ -39,7 +41,7 @@ header {
 
 /* Menu di navigazione */
 nav {
-  background-color: #ddd;
+  background-color: #ddd; /* grigio chiaro */
   padding: 10px 0;
   flex-shrink: 0;
 }
@@ -61,25 +63,26 @@ nav {
   color: #11120f;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 14px;
 }
 
-.menu li a:hover {
+.menu li a:hover,
+.menu li a.active {
   color: #555;
 }
 
 /* Sezione contenuti */
-section {
+section, main {
   flex-grow: 1;
   padding: 20px;
   max-width: 1000px;
   margin: auto;
 }
 
-/* Footer sempre in fondo */
+/* Footer sempre a fondo pagina */
 footer {
   background-color: #1c1c1a;
-  color: #fff;
+  color: white;
   text-align: center;
   padding: 20px;
   margin-top: auto;
