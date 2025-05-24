@@ -1,5 +1,5 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+/* Importa Google Font: Libre Bodoni */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap');
 
 /* Stile base */
 body {
@@ -103,4 +103,10 @@ footer {
   padding: 20px;
   margin-top: auto;
   flex-shrink: 0;
+}
+
+/* NUOVO: stile per la scritta "Servizio NCC su Piemonte" */
+.titolo-ncc {
+  font-family: 'Libre Bodoni', serif;
+  color: #555; /* grigio come il banner sottostante */
 }
