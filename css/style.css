@@ -53,9 +53,15 @@ header img {
   letter-spacing: 1px;
   margin: 0;
   padding: 5px 15px;
-  white-space: nowrap; /* Impedisce l'andare a capo */
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Riduci font su schermi piccoli */
+@media screen and (max-width: 600px) {
+  .sottotitolo-ncc {
+    font-size: 14px;
+  }
 }
 
 /* Menu di navigazione */
@@ -69,7 +75,7 @@ nav {
   list-style: none;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Permette di restare su una riga o andare a capo solo se necessario */
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
 }
@@ -88,7 +94,7 @@ nav {
 
 .menu li a:hover,
 .menu li a.active {
-  color: #989a99;
+  color: #555;
 }
 
 /* Sezione contenuti */
