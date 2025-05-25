@@ -1,6 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap');
-
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Libre+Bodoni&display=swap');
 
 /* Stile base */
 body {
@@ -32,7 +31,7 @@ body.home {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Header compatto */
+/* Header */
 header {
   background-color: #11120f;
   color: #fff;
@@ -47,8 +46,11 @@ header img {
   margin-bottom: 5px;
 }
 
-header p {
-  font-size: 14px;
+.sottotitolo-ncc {
+  font-family: 'Libre Bodoni', serif;
+  color: #555;
+  font-size: 18px;
+  letter-spacing: 1px;
   margin: 0;
 }
 
@@ -79,13 +81,9 @@ nav {
   font-size: 13px;
 }
 
-.menu li a:hover {
-  color: #555;
-}
-
+.menu li a:hover,
 .menu li a.active {
   color: #555;
-  pointer-events: none;
 }
 
 /* Sezione contenuti */
@@ -106,8 +104,14 @@ footer {
   flex-shrink: 0;
 }
 
-/* NUOVO: stile per la scritta "SERVIZIO NCC SU PIEMONTE E LOMBARDIA" */
-.titolo-ncc {
-  font-family: 'Libre Bodoni', serif;
-  color: #555; /* grigio come il banner sottostante */
+/* Mobile adjustments */
+@media screen and (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
 }
