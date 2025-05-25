@@ -1,12 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap');
 
-.titolo-ncc {
-  font-family: 'Libre Bodoni', serif !important;
-  color: #555 !important; /* stesso grigio del banner */
-  font-size: 20px; /* opzionale, per evidenziare */
-  letter-spacing: 1px;  /* opzionale, per eleganza */
-}
+
 /* Stile base */
 body {
   font-family: Arial, sans-serif;
