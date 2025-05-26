@@ -20,6 +20,14 @@ body.home {
   background-repeat: no-repeat;
 }
 
+/* Sfondo solo per la pagina chi siamo */
+body.chisiamo {
+  background-image: url('immagine servizi.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Box sopra lo sfondo nella home */
 .home-box {
   background: rgba(255, 255, 255, 0.85);
@@ -61,6 +69,13 @@ header img {
 @media screen and (max-width: 600px) {
   .sottotitolo-ncc {
     font-size: 14px;
+  }
+
+  /* Adatta immagine servizi su schermi piccoli */
+  body.chisiamo {
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
   }
 }
 
