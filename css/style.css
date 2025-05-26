@@ -22,11 +22,12 @@ body.home {
 
 /* Sfondo solo per la pagina chi siamo */
 body.chisiamo {
-  background-image: url('../immagine servizi.jpg'); /* percorso corretto */
+  background-image: url('../immagine servizi.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* rimuovo fixed per problemi mobile */
+  /* background-attachment: fixed; */
 }
 
 /* Box sopra lo sfondo nella home */
