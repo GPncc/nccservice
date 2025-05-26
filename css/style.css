@@ -60,6 +60,7 @@ body.chisiamo li {
 @media screen and (max-width: 600px) {
   .sottotitolo-ncc {
     font-size: 14px;
+    white-space: normal;
   }
 
   /* Adatta immagine servizi su schermi piccoli */
