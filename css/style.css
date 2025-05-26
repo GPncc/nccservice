@@ -26,6 +26,7 @@ body.chisiamo {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed; 
   /* rimuovo fixed per problemi mobile */
   /* background-attachment: fixed; */
 }
