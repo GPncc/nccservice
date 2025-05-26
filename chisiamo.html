@@ -1,14 +1,38 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>GP NCC - SERVIZI</title> <!-- titolo pagina -->
+  <title>GP NCC - SERVIZI</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="/favicon_v2.ico" type="image/x-icon" />
+
+  <style>
+    body.chi-siamo {
+      background-image: url('immagine-servizi.jpg'); /* ✅ immagine nella root */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    body.chi-siamo section {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    body.chi-siamo h2,
+    body.chi-siamo p,
+    body.chi-siamo li {
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 
-<body class="chisiamo">
+<body class="chi-siamo">
   <header>
     <img src="logo ncc 2.png" alt="GP NCC Service" />
     <p class="sottotitolo-ncc">SERVIZIO NCC SU PIEMONTE E LOMBARDIA</p>
@@ -17,7 +41,7 @@
   <nav>
     <ul class="menu">
       <li><a href="index.html">HOME</a></li>
-      <li><a href="chisiamo.html" class="active">SERVIZI</a></li> <!-- qui cambio testo e active -->
+      <li><a href="chisiamo.html" class="active">SERVIZI</a></li>
       <li><a href="flotta.html">FLOTTA</a></li>
       <li><a href="contatti.html">CONTATTI</a></li>
     </ul>
@@ -25,7 +49,7 @@
 
   <main>
     <section>
-      <h2>SERVIZI</h2>  <!-- titolo della sezione -->
+      <h2>SERVIZI</h2>
       <p>GP NCC SERVICE OFFRE UN SERVIZIO DI NOLEGGIO CON CONDUCENTE AFFIDABILE E PUNTUALE SU PIEMONTE E LOMBARDIA.</p>
       <p>TI OFFRIAMO:</p>
       <ul>
