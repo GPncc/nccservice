@@ -55,24 +55,6 @@ body.chisiamo li {
   text-transform: uppercase;
 }
 
-/* Riduci font su schermi piccoli */
-@media screen and (max-width: 600px) {
-  .sottotitolo-ncc {
-    font-size: 13px;
-    padding: 0 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* Adatta immagine servizi su schermi piccoli */
-  body.chisiamo {
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat;
-  }
-}
-
 /* Header */
 header {
   background-color: #11120f;
@@ -91,12 +73,28 @@ header img {
 .sottotitolo-ncc {
   font-family: 'Libre Bodoni', serif;
   color: #989a99;
-  font-size: 18px;
+  font-size: clamp(12px, 2vw, 18px);
   letter-spacing: 1px;
   margin: 0;
   padding: 5px 15px;
   text-align: center;
   white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Riduci font su schermi piccoli */
+@media screen and (max-width: 600px) {
+  .sottotitolo-ncc {
+    font-size: clamp(10px, 3vw, 14px);
+    padding: 3px 10px;
+  }
+
+  /* Adatta immagine servizi su schermi piccoli */
+  body.chisiamo {
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
 }
 
 /* Menu di navigazione */
