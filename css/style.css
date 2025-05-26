@@ -22,7 +22,7 @@ body.home {
 
 /* Sfondo solo per la pagina chisiamo */
 body.chisiamo {
-  background-image: url('../immagine-servizi.jpg');
+  background-image: url('immagine-servizi.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
