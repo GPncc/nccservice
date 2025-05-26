@@ -21,16 +21,27 @@ body.home {
 }
 
 /* Sfondo solo per la pagina chi siamo */
-body.chi-siamo {
-  background-image: url('/immagine servizi.jpg'); /* Percorso root */
+body.chisiamo {
+  background-image: url('../immagine servizi.jpg'); /* percorso corretto */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-/* Box sopra lo sfondo nella pagina chi siamo */
-body.chi-siamo section {
+/* Box sopra lo sfondo nella home */
+.home-box {
+  background: rgba(255, 255, 255, 0.85);
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Stile per la sezione chi siamo */
+body.chisiamo section {
   background-color: rgba(255, 255, 255, 0.85);
   padding: 30px;
   border-radius: 12px;
@@ -38,11 +49,24 @@ body.chi-siamo section {
   margin: 40px auto;
 }
 
-/* Testo maiuscolo nella pagina chi siamo */
-body.chi-siamo h2,
-body.chi-siamo p,
-body.chi-siamo li {
+body.chisiamo h2,
+body.chisiamo p,
+body.chisiamo li {
   text-transform: uppercase;
+}
+
+/* Riduci font su schermi piccoli */
+@media screen and (max-width: 600px) {
+  .sottotitolo-ncc {
+    font-size: 14px;
+  }
+
+  /* Adatta immagine servizi su schermi piccoli */
+  body.chisiamo {
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
 }
 
 /* Header */
@@ -69,21 +93,6 @@ header img {
   padding: 5px 15px;
   text-align: center;
   white-space: nowrap;
-}
-
-/* Riduci font e sfondo su schermi piccoli */
-@media screen and (max-width: 600px) {
-  .sottotitolo-ncc {
-    font-size: 14px;
-  }
-
-  /* Adatta immagine servizi su schermi piccoli */
-  body.chi-siamo {
-    background-size: auto 100%; /* Adatta altezza e mantiene proporzioni */
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-attachment: scroll; /* Migliore per mobile */
-  }
 }
 
 /* Menu di navigazione */
