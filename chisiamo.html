@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>GP NCC - SERVIZI</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="/favicon_v2.ico" type="image/x-icon" />
 
-<title>GP NCC - SERVIZI</title>
-<link rel="stylesheet" href="css/style.css" />
+  <style>
+    body.chi-siamo {
+      background-image: url('immagine servizi.jpg'); /* ✅ immagine nella root */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
 
-<!-- Favicon: percorso assoluto e nome aggiornato -->
-<link rel="icon" href="/favicon_v2.ico" type="image/x-icon" />
+    body.chi-siamo section {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    body.chi-siamo h2,
+    body.chi-siamo p,
+    body.chi-siamo li {
+      text-transform: uppercase;
+    }
+  </style>
 </head>
-<body>
+
+<body class="chi-siamo">
   <header>
     <img src="logo ncc 2.png" alt="GP NCC Service" />
     <p class="sottotitolo-ncc">SERVIZIO NCC SU PIEMONTE E LOMBARDIA</p>
   </header>
+
   <nav>
     <ul class="menu">
       <li><a href="index.html">HOME</a></li>
@@ -23,6 +46,7 @@
       <li><a href="contatti.html">CONTATTI</a></li>
     </ul>
   </nav>
+
   <main>
     <section>
       <h2>SERVIZI</h2>
@@ -31,10 +55,11 @@
       <ul>
         <li>TRASFERIMENTI AEREOPORTUALI</li>
         <li>NCC PER EVENTI E CERIMONIE</li>
-        <li>SERVIZI BUISINESS E AZIENDALI</li>
+        <li>SERVIZI BUSINESS E AZIENDALI</li>
       </ul>
     </section>
   </main>
+
   <footer>
     &copy; 2025 GP NCC Service - Tutti i diritti riservati
   </footer>
