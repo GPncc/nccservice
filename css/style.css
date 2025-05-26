@@ -27,7 +27,6 @@ body.chisiamo {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
 }
 
 /* Box sopra lo sfondo nella home */
@@ -59,8 +58,11 @@ body.chisiamo li {
 /* Riduci font su schermi piccoli */
 @media screen and (max-width: 600px) {
   .sottotitolo-ncc {
-    font-size: 14px;
-    white-space: normal;
+    font-size: 13px;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* Adatta immagine servizi su schermi piccoli */
